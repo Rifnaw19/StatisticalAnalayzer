@@ -1123,27 +1123,27 @@ elif menu == "Uji Rata-rata 2 Sampel Independen – Varians Diketahui":
 #==========================================================================================================================================================================
 
 elif menu == "Uji Kesamaan Varians":
-
+    
+   st.markdown(
+    '<h1 class="neon-title">Uji Rata-rata 2 Sampel Independen - σ Varians Diketahui (Uji Z)</h1>',
+    unsafe_allow_html=True)
     st.title("Uji Kesamaan Varians")
     tab1, tab2, tab3, tab4 = st.tabs(['Konsep', 'Rumus', 'Contoh', 'Statistik Uji'])
     with tab1:
-        subtab1, subtab2 =st.tabs(['Konsep Dasar & Tujuan Uji', 'Hipotesis Statistik'])
-        with subtab1:
-            st.subheader("Konsep Dasar & Tujuan Uji")
-            st.write("Menguji kesamaan varians dilakukan untuk menentukan bentuk uji statistik yang digunakan untuk menguji rata-rata dua sampel independen.") 
-        with subtab2:
-            st.header("Hipotesis Statistik")
-            col1, col2 = st.columns(2)
-            with col1: 
-                st.subheader("Hipotesis 0:")
-                st.markdown("**Ho: μ(A) = μ(B) atau μ(A) - μ(B) = 0**")
-            with col2:
-                st.subheader("Hipotesis 1:")
-                st.markdown("**H1: μ(A) ≠ μ(B) atau μ(A) - μ(B) ≠ 0**")
+        st.markdown("## 🧠 Konsep Dasar")
+        st.write("Menguji kesamaan varians dilakukan untuk menentukan bentuk uji statistik yang digunakan untuk menguji rata-rata dua sampel independen.") 
+        st.markdown("## 📝 Hipotesis Statistik")
+        st.markdown(r"""
+    | Jenis Uji | Hipotesis Nol ($H_0$) | Hipotesis Alternatif ($H_1$) | Keterangan |
+    | :---: | :---: | :---: | :--- |
+    | *Dua Arah* |$H_0$: $\mu_1 = \mu_2$ |$H_1$: $\mu_1 \neq \mu_2$ | Menguji perbedaan dari $\mu_1$ dan $\mu_2$. |
+    | *Satu Arah (Kanan)* |$H_0$: $\mu_1 \le \mu_2$ |$H_1$: $\mu_1 > \mu_2$ | Menguji apakah $\mu_1$ lebih besar dari $\mu_2$. |
+    | *Satu Arah (Kiri)* |$H_0$: $\mu_1 \ge \mu_2$ |$H_1$: $\mu_1 < \mu_2$ | Menguji apakah $\mu_1$ lebih kecil dari $\mu_2$. |
+    """)
     
     
     with tab2:
-        st.header("Rumus Uji Kesamaan Varians")
+        st.markdown("## 🧩 Rumus Statistik Uji Z")
         st.latex(r"""
         F_{\text{hitung}} = \frac{S^{2}_A}{ S^{2}_B}
         """)
@@ -1162,9 +1162,7 @@ elif menu == "Uji Kesamaan Varians":
         """)
     
     with tab3:
-        st.header("Contoh Perhitungan Singkat Kesamaan Varians")
-        st.subheader("Soal")
-        
+        st.markdown("## 📘 Contoh Soal")
         st.write("Sebuah perusahaan komputer memproduksi dua tipe laptop yaitu Tipe A dan Tipe B. Mereka kemudian ingin membandingkan stabilitas suhu prosesor dari kedua tipe tersebut (Dalam Celcius). ")
         st.markdown("**Data Tipe A: 55, 57, 60, 59, 58, 61, 56, 60**")
         st.write("**Data Tipe B: 50, 53, 52, 54, 55, 51, 52, 53**")
@@ -1220,13 +1218,15 @@ elif menu == "Uji Kesamaan Varians":
         df1 = ke_df(data1)
         df2 = ke_df(data2)
             
-        st.subheader("Uji Kesamaan Varians | α = 5%")
+        st.subheader("Uji Kesamaan Varians")
+        st.markdown("---")
+        a = st.slider("Tingkat Signifikansi (α)", 0.01, 0.10, 0.05, 0.01)
         if st.button("Uji Kesamaan Varians"):
             s1 = df1["Nilai"].var()
             s2 = df2["Nilai"].var()
             n1 = len(df1)
             n2 = len(df2)
-            a = 0.05
+            
             if s1 >= s2:
                 Fhit = s1 / s2
                 dof1 = n1 - 1
@@ -2109,6 +2109,7 @@ elif menu == "Uji Rata-rata 2 Sampel Dependen":
                 st.subheader("Detail Tambahan")
                 st.write(f"Standar Deviasi (SD) = {S_D:.4f}")
                 st.write(f"Standard Error (SE) = {SE:.4f}")
+
 
 
 
