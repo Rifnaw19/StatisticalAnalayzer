@@ -175,6 +175,7 @@ menu = st.sidebar.radio("Pilih modul:", ["Uji Proporsi", "Uji Rata-rata Satu Sam
 
 if menu == "Uji Proporsi":
     st.title("Uji Proporsi (1 Sampel & 2 Sampel)")
+    st.write("---")
 
 #-----------------------------FUNGSI BANTU------------------------------------------------------------------
 
@@ -2108,5 +2109,6 @@ elif menu == "Uji Rata-rata 2 Sampel Dependen":
                 st.subheader("Detail Tambahan")
                 st.write(f"Standar Deviasi (SD) = {S_D:.4f}")
                 st.write(f"Standard Error (SE) = {SE:.4f}")
+
 
 
