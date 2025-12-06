@@ -204,7 +204,7 @@ if menu == "Uji Proporsi":
 
     with tab1:
 
-        st.header("Uji Proporsi Satu Sampel")
+        st.header("Uj Proporsi Satu Sampel")
 
         sub1, sub2, sub3, sub4 = st.tabs(
             ["Konsep", "Rumus", "Contoh Perhitungan", "Kalkulator"]
@@ -2108,3 +2108,4 @@ elif menu == "Uji Rata-rata 2 Sampel Dependen":
                 st.subheader("Detail Tambahan")
                 st.write(f"Standar Deviasi (SD) = {S_D:.4f}")
                 st.write(f"Standard Error (SE) = {SE:.4f}")
+
